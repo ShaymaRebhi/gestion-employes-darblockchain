@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was developped using React and React-Redux-Toolkit
 
-## Available Scripts
+## Backend
 
 In the project directory, you can run:
 
+### `cd backend`
+
+Change the current directory to the backend directory.
+
+### `npm install`
+
+install dependencies
+
+### `nodemon index.js `
+
+Run backend in order to create connection with database
+
+In the project directory, you can find:
+
+index.js : where we implemented the `Node.js/Express` server , specified port : 4000 , connected to `MongoDB` using `Mongoose` and finally implemented `endpoints`
+
+employees.js : created the employee schema
+
+
+
+## Client
+
+In the project directory, you can run:
+
+### `npm install`
+
+install dependencies
+
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+run application
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Technology
 
-### `npm test`
+React 18/17
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+react-redux 8
 
-### `npm run build`
+redux-toolkit 1.8.5
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+react-router-dom 6
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+axios 0.27.2
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+bootstrap 5
 
-### `npm run eject`
+### Project structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ ![micro](https://i.postimg.cc/wTQS4sYz/structure-removebg-preview.png)
+ 
+– App is the container that has Router & navbar.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+– There are 4 components: Employees, cardEmployee,cardItemComponent,DetailsEmployee, AddComponent.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+– http-common.js initializes axios with HTTP base Url and headers.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+_router.js : since we are using react-router-dom v6, the support for props.match.params or props.history has been deprecated.So we need a wrapper (HOC) that can use new useful hooks.
 
-## Learn More
+– EmployeeService has methods for sending HTTP requests to the Apis.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+About Redux elements :
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+– store.js this is where we create the Redux store instance with reducers
 
-### Code Splitting
+– Reducer that will updates a different part of the application state corresponding to dispatched action.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 
