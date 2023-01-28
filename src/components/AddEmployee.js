@@ -22,8 +22,8 @@ class  AddEmployee extends Component {
             age: 0,
             email: "",
             occupation: "",
-            errorEmail:undefined,
-            errorAge:undefined,
+            errorEmail:'',
+            errorAge:'',
             submitted :false
         };
     }
@@ -40,10 +40,11 @@ class  AddEmployee extends Component {
 
     }
     onChangeage(e) {
-        let errors;
+        let errors='';
 
         if (e.target.value<=19){
             errors=<strong style={{color:'red'}}>*Age should be greater than 19</strong>;
+
         }
         this.setState({errorAge:errors});
         this.setState({
@@ -52,10 +53,11 @@ class  AddEmployee extends Component {
 
     }
     onChangeemail(e) {
-        let error;
+        let error='';
 
         if (!validator.isEmail(e.target.value)){
             error=<strong style={{color:'red'}}>*email is not valid</strong>;
+
         }
         this.setState({errorEmail:error});
         this.setState({
@@ -89,15 +91,15 @@ class  AddEmployee extends Component {
                     email: data.email,
                     occupation: data.email,
                 });
-
                 console.log(data);
                 this.success()
                 this.newEmployee()
 
-            })}else{
-                this.error()
-
-    }}
+            })}
+else{
+    this.error()
+        }
+    }
     newEmployee() {
         this.setState({
             id: null,
